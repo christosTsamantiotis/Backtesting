@@ -18,9 +18,9 @@ def file(data):
     last = lines[-1]
     f.close()
     sp = list(last.split(","))
-    stri = ""
-    if data[-1][0] == sp[0]:
-        del data[-1]
+    stri = "" #This is the string that will be appended to the file
+    if data[-1][0] == sp[0]:        ##Check if the last entry in the file is the same as the last one in the json data
+        del data[-1]                ## Delete it from the json data
         for x in range(0,7500,1):
             for y in range(0,4,1):
                 stri = stri + str(data[x][y])

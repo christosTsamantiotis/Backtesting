@@ -1,7 +1,6 @@
 import json
 def exp(mins,percentage,f):
      rez = []
-     n = 0
      for x in f:
         line = f.readline().split(",")
         up = 0
@@ -18,7 +17,7 @@ def exp(mins,percentage,f):
         nextMTS = mts + (mins * 60 * 1000)
         while mts <= nextMTS:
             line = f.readline().split(",")
-            change = (price/float(line[3]))*100-100
+            change = (float(line[3])/price)*100-100
             mts = int(line[1])
             transaction = transaction + float(line[2])
             
@@ -60,7 +59,7 @@ def exp(mins,percentage,f):
                     totalVol = totalVol + temp
                     volRatio = whaleVol/totalVol
                     rez.append({'up': up,'down': down,'change': change,'whaleBuy': whaleBuy,'whaleSell':whaleSell,'whaleBase':whaleBase,'transaction':transaction, 'whale / transaction RATIO':whale2base, 'Volume':totalVol, 'whale2buy':whale2buy, 'whale2sell':whale2sell, 'volRatio':volRatio, 'mts':mts})
-                    return rez
+     return rez
 
 
 
